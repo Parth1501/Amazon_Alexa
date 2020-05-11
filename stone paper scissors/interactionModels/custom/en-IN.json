@@ -1,0 +1,114 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "lets go",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "letsPlay",
+          "slots": [
+            {
+              "name": "variable",
+              "type": "VariableSlot"
+            }
+          ],
+          "samples": [
+            "{variable}",
+            "play {variable}",
+            "i play {variable}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "scissor"
+              }
+            },
+            {
+              "name": {
+                "value": "paper"
+              }
+            },
+            {
+              "name": {
+                "value": "rock",
+                "synonyms": [
+                  "stone"
+                ]
+              }
+            }
+          ],
+          "name": "VariableSlot"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "letsPlay",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "variable",
+              "type": "VariableSlot",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {},
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.753314576016.290460705179.1124488712794"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Slot.Validation.753314576016.290460705179.1124488712794",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "play variable name"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "11"
+}
